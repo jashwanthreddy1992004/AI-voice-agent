@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Voice Agent</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>AI Voice Agent</h1>
+      <p class="subtitle">Powered by ElevenLabs Conversational AI</p>
+    </header>
+
+    <div id="errorBanner" class="error-banner hidden" role="alert"></div>
+
+    <main class="card">
+      <label class="field-label" for="agentSelect">Agent</label>
+      <select id="agentSelect" class="agent-select"></select>
+
+      <div class="orb-wrap">
+        <div id="orb" class="orb" data-state="idle">
+          <div class="orb-core"></div>
+          <div class="orb-ring ring-1"></div>
+          <div class="orb-ring ring-2"></div>
+        </div>
+      </div>
+
+      <p id="statusText" class="status-text">Idle — press Start to talk</p>
+
+      <div class="controls">
+        <button id="startBtn" class="btn btn-primary">Start Call</button>
+        <button id="endBtn" class="btn btn-danger" disabled>End Call</button>
+        <button id="muteBtn" class="btn btn-ghost" disabled>Mute</button>
+      </div>
+    </main>
+
+    <section class="panel">
+      <h2>Live Transcript</h2>
+      <div id="transcript" class="transcript"></div>
+    </section>
+
+    <section class="panel stats">
+      <h2>Call Analytics</h2>
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-value" id="statTotalCalls">0</span>
+          <span class="stat-label">Total conversations</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="statTotalDuration">0m 0s</span>
+          <span class="stat-label">Total talk time</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="statLastDuration">0m 0s</span>
+          <span class="stat-label">Last call duration</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
